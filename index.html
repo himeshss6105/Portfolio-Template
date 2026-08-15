@@ -144,15 +144,48 @@ footer .flogo img{width:26px;height:26px;border-radius:50%}
   .wrap{width:min(100% - 38px,1240px)}
   .nav-links,.theme-tag{display:none}
   nav{height:70px}
-  .hero{min-height:calc(100vh - 70px);padding-top:30px}
-  .hero-card:before{left:-20px;right:-20px;top:-24px;bottom:-24px}
+  .hero{min-height:auto;padding:40px 0 70px}
+  .hero-card:before{left:-16px;right:-16px;top:-20px;bottom:-20px}
   section{padding:80px 0}
   .committee-wide{grid-column:auto}
-  .photo-layer img{object-position:center 32%;transform:scale(1.08)}
-  .photo-overlay{opacity:0.25}
+
+  /* Show the full group photo on mobile instead of extreme side-crop */
+  .photo-layer{
+    position:fixed;
+    inset:0;
+    height:42vh;           /* photo occupies top portion only */
+    z-index:-2;
+  }
+  .photo-layer img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 22%;
+    transform:scale(1.02);
+  }
+  .photo-overlay{
+    position:fixed;
+    top:0; left:0; right:0;
+    height:42vh;
+    z-index:-1;
+    background:linear-gradient(180deg,rgba(250,249,246,.08) 0%,rgba(250,249,246,.55) 55%,rgba(250,249,246,.92) 100%);
+    opacity:1;
+  }
+  /* soft fade so content below feels continuous */
+  body::before{
+    content:'';
+    position:fixed;
+    top:40vh; left:0; right:0;
+    height:12vh;
+    background:linear-gradient(180deg,rgba(250,249,246,.85),var(--bg));
+    z-index:-1;
+    pointer-events:none;
+  }
 }
 @media(max-width:480px){
-  .photo-layer img{object-position:center 38%;transform:scale(1.12)}
+  .photo-layer, .photo-overlay{height:38vh}
+  body::before{top:36vh}
+  .hero{padding:28px 0 55px}
 }
 </style>
 </head>
