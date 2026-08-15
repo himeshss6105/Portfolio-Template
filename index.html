@@ -24,7 +24,7 @@ a{color:inherit;text-decoration:none}
 
 /* ===== fixed office-bearers photo that dims into the background on scroll ===== */
 .photo-layer{position:fixed;inset:0;z-index:-2;overflow:hidden}
-.photo-layer img{width:100%;height:100%;object-fit:cover;object-position:center 22%;transform:scale(1.06);transition:transform .2s linear;filter:saturate(1.02)}
+.photo-layer img{width:100%;height:100%;object-fit:cover;object-position:center 25%;transform:scale(1.06);transition:transform .2s linear;filter:saturate(1.02)}
 .photo-overlay{position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 50% 30%,rgba(250,249,246,.15),rgba(250,249,246,.55) 60%),linear-gradient(180deg,rgba(250,249,246,.05),rgba(250,249,246,.97));opacity:.08;transition:opacity .15s linear}
 
 .noise{position:fixed;inset:0;opacity:.035;z-index:20;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -131,6 +131,9 @@ footer .flogo img{width:26px;height:26px;border-radius:50%}
 @keyframes scrolldrop{0%{transform:translateY(-20px)}100%{transform:translateY(50px)}}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
+@media(max-width:1100px){
+  .tiles{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:900px){
   .tiles,.committee,.leaders{grid-template-columns:1fr}
   .about-grid,.section-head{grid-template-columns:1fr}
@@ -145,6 +148,11 @@ footer .flogo img{width:26px;height:26px;border-radius:50%}
   .hero-card:before{left:-20px;right:-20px;top:-24px;bottom:-24px}
   section{padding:80px 0}
   .committee-wide{grid-column:auto}
+  .photo-layer img{object-position:center 32%;transform:scale(1.08)}
+  .photo-overlay{opacity:0.25}
+}
+@media(max-width:480px){
+  .photo-layer img{object-position:center 38%;transform:scale(1.12)}
 }
 </style>
 </head>
@@ -179,17 +187,49 @@ footer .flogo img{width:26px;height:26px;border-radius:50%}
         <p class="label">01 — Service in action</p>
         <div>
           <h2>A few initiatives we're proud of.</h2>
-          <p class="section-sub">Tap a card for the full story — each one real, each one recent.</p>
+          <p class="section-sub">Tap a card for the full story — real projects from our recent service work across Bangalore.</p>
         </div>
       </div>
       <div class="tiles">
-        <div class="tile reveal" data-modal="meals">
-          <div class="tile-top"><span>Education & welfare</span><span class="tile-plus">+</span></div>
-          <div><h3>Meals for 25 children</h3><p>A day's meals sponsored at Janaseva Samruddhi Educational and Rural Development Society.</p></div>
+        <div class="tile reveal" data-modal="firebrigade">
+          <div class="tile-top"><span>Fire Brigade Day</span><span class="tile-plus">+</span></div>
+          <div><h3>T-shirts &amp; refreshments for fire personnel</h3><p>Distributed T-shirts, buttermilk and sweets to dedicated staff of the Fire Brigade Department.</p></div>
         </div>
         <div class="tile reveal" data-modal="nighties">
           <div class="tile-top"><span>Elder care · Mother's Day</span><span class="tile-plus">+</span></div>
           <div><h3>Nighties for elderly women</h3><p>Distributed to residents of Mahalakshmi Old Age Home, Vijayanagar, as a gesture of care.</p></div>
+        </div>
+        <div class="tile reveal" data-modal="summercamp">
+          <div class="tile-top"><span>Inclusion · Summer camp</span><span class="tile-plus">+</span></div>
+          <div><h3>Volunteering at special summer camp</h3><p>Supported a one-day camp for visually challenged, disabled and partially disabled children.</p></div>
+        </div>
+        <div class="tile reveal" data-modal="meals">
+          <div class="tile-top"><span>Education &amp; welfare</span><span class="tile-plus">+</span></div>
+          <div><h3>Meals for 25 children</h3><p>A day's meals sponsored at Janaseva Samruddhi Educational and Rural Development Society.</p></div>
+        </div>
+        <div class="tile reveal" data-modal="seemantaha">
+          <div class="tile-top"><span>Women's welfare</span><span class="tile-plus">+</span></div>
+          <div><h3>Seemantaha programme for 10 women</h3><p>Celebrated with sarees, bangles, fruits, flowers, sweets and cash gifts for underprivileged women.</p></div>
+        </div>
+        <div class="tile reveal" data-modal="education">
+          <div class="tile-top"><span>Education support</span><span class="tile-plus">+</span></div>
+          <div><h3>Student educational expenses</h3><p>Member contribution towards a student's educational needs.</p></div>
+        </div>
+        <div class="tile reveal" data-modal="blood">
+          <div class="tile-top"><span>Health · Blood donation</span><span class="tile-plus">+</span></div>
+          <div><h3>Blood donation by member</h3><p>Mrs. Seema Rao donated blood at Rashrotthana Blood Bank in collaboration with Youth for Parivarthan.</p></div>
+        </div>
+        <div class="tile reveal" data-modal="preamble">
+          <div class="tile-top"><span>Civic education</span><span class="tile-plus">+</span></div>
+          <div><h3>Constitution Preamble framed copy</h3><p>Donated to students of Government Higher Primary School, Chattrakhane, Chandapura.</p></div>
+        </div>
+        <div class="tile reveal" data-modal="charts">
+          <div class="tile-top"><span>Early education</span><span class="tile-plus">+</span></div>
+          <div><h3>Educational charts for Shishu Vihara</h3><p>Sponsored visual learning aids for young children at Shishu Vihara Kendra, Banashankari.</p></div>
+        </div>
+        <div class="tile reveal" data-modal="sslc">
+          <div class="tile-top"><span>Girl child education</span><span class="tile-plus">+</span></div>
+          <div><h3>SSLC fees &amp; notepads for two girls</h3><p>Club President sponsored school fees of two girl students and donated 70 notepads.</p></div>
         </div>
         <div class="tile reveal" data-modal="breastfeeding">
           <div class="tile-top"><span>12 Aug 2026 · Health</span><span class="tile-plus">+</span></div>
@@ -301,8 +341,16 @@ onScroll();
 
 /* pop-up info tiles */
 const modalData={
-  meals:{label:"Education & welfare",title:"A day's meals for 25 children",body:"<p>Our club sponsored a full day's meals for <span class='stat'>25 underprivileged children</span> at Janaseva Samruddhi Educational and Rural Development Society — a small act aimed at a big difference, part of our ongoing commitment to child welfare in Bangalore.</p>"},
-  nighties:{label:"Elder care · Mother's Day",title:"Nighties for elderly women",body:"<p>On the occasion of Mother's Day, members distributed nighties to elderly women residents of <span class='stat'>Mahalakshmi Old Age Home</span>, Vijayanagar — a gesture of warmth and respect for the women who call it home.</p>"},
+  firebrigade:{label:"International Fire Brigadier Day",title:"T-shirts & refreshments for fire personnel",body:"<p>On the occasion of International Fire Brigadier Day, our club organised a heartfelt initiative towards the dedicated personnel of the Fire Brigade Department. We distributed T-shirts along with buttermilk and sweets to the fire brigade staff.</p><p><span class='stat'>Cost: ₹900 · Beneficiaries: 32</span></p>"},
+  nighties:{label:"Elder care · Mother's Day",title:"Nighties for elderly women",body:"<p>On the occasion of Mother's Day, we donated nighties to the elderly women residents at <span class='stat'>Mahalakshmi Old Age Home</span>, Vijayanagar, to express love, care, and respect towards senior citizens.</p><p><span class='stat'>Cost: ₹2,160 · Beneficiaries: 16</span></p>"},
+  summercamp:{label:"Inclusion · Summer camp",title:"Volunteering at special summer camp",body:"<p>We volunteered at a one-day summer camp organised by the International Agency for Rehabilitation, India, for visually challenged, disabled, and partially disabled children. The camp included physical activities, yoga, yoga nidra, and many fun games.</p><p><span class='stat'>Beneficiaries: 30</span></p>"},
+  meals:{label:"Education & welfare",title:"A day's meals for 25 children",body:"<p>Our club member Mrs. Lakshmi Gandhi generously sponsored one day meals for the children at <span class='stat'>Janaseva Samruddhi Educational and Rural Development Society</span>.</p><p><span class='stat'>Cost: ₹5,000 · Beneficiaries: 25 children</span></p>"},
+  seemantaha:{label:"Women's welfare",title:"Seemantaha programme for underprivileged women",body:"<p>We organised a Seemantaha programme for 10 underprivileged women at Ittranadu Namma Clinic, Kathriguppe. We celebrated this special occasion by distributing sarees, bangles, fruits, flowers, sweets, and cash gifts to the beneficiaries.</p><p><span class='stat'>Cost: ₹1,700 · Beneficiaries: 10 women</span></p>"},
+  education:{label:"Education support",title:"Student educational expenses",body:"<p>Our club member Mrs. Shyamala Nayak generously donated towards supporting a student's educational expenses.</p><p><span class='stat'>Cost: ₹2,000 · Beneficiaries: 1</span></p>"},
+  blood:{label:"Health · Blood donation",title:"Blood donation by member",body:"<p>Our club member Mrs. Seema Rao generously donated blood at <span class='stat'>Rashrotthana Blood Bank</span>, Ganipuram, Bangalore, in collaboration with Youth for Parivarthan Organisation.</p><p><span class='stat'>Cost: Nil · Beneficiaries: Many</span></p>"},
+  preamble:{label:"Civic education",title:"Constitution Preamble framed copy",body:"<p>Our club donated a framed copy of the Constitution Preamble to the students of Government Higher Primary School, Chattrakhane, Chandapura, Bengaluru.</p><p><span class='stat'>Cost: Nil · Beneficiaries: Many</span></p>"},
+  charts:{label:"Early education",title:"Educational charts for Shishu Vihara Kendra",body:"<p>Our club sponsored educational charts to Shishu Vihara Kendra, Banashankari, Bengaluru. These charts will serve as effective learning aids for young children, helping them understand concepts through visual learning and making the educational environment more engaging and interactive.</p><p><span class='stat'>Cost: ₹650 · Beneficiaries: 30</span></p>"},
+  sslc:{label:"Girl child education",title:"SSLC fees & notepads for two girls",body:"<p>Our Club President, Mrs. Mohana Madhusudan, sponsored the SSLC school fees of two girl students and donated 70 notepads to students of Sahakari Vidya Kendra, Padmanabha Nagar, Bengaluru.</p><p><span class='stat'>Amount: ₹3,850 · Beneficiaries: 2</span></p>"},
   breastfeeding:{label:"12 August 2026 · Health",title:"Breastfeeding Kit Distribution & Awareness",body:"<p>Held at Sanjay Gandhi Hospital, this programme benefited <span class='stat'>20 new mothers</span>. Kits containing essential items were distributed alongside an awareness session covering exclusive breastfeeding, nutrition, hygiene and the health benefits of breastfeeding for both mother and baby.</p>"}
 };
 const backdrop=document.getElementById('modalBackdrop');
